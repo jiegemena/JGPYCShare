@@ -5,6 +5,9 @@ from Crypto.Hash import SHA256
 import base64
 from Crypto.Cipher import AES
 # from Crypto import Random
+from Crypto import Random
+import jgpycshare.filetools
+import os
 
 
 class JGRSA:
@@ -57,6 +60,19 @@ class JGRSA:
         # random_generator = Random.new().read
         text = cipher.decrypt(base64.b64decode(decodestr), None)
         return text.decode('utf8')
+
+    def createkey(self,prifile='key/app_private_2048.pem',pubfile='key/app_public_2048.pem'):
+        random_generator = Random.new().read  # rsa算法生成实例
+        rsa = RSA.generate(2048, random_generator)  # 秘钥对的生成
+        app_private_2048 = rsa.exportKey()
+        jgpycshare.filetools.mkdir(os.path.dirname(prifile) )
+        with open(prifile, 'wb') as f:
+            f.write(app_private_2048)
+            app_public_2048 = rsa.publickey().exportKey()
+        jgpycshare.filetools.mkdir(os.path.dirname(pubfile) )
+        with open(pubfile, 'wb') as f:
+            f.write(app_public_2048)
+
 
     @staticmethod
     def ali_pub_check_signfor_key(data, signature, pubkey):
