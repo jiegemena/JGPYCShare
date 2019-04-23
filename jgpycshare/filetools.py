@@ -1,3 +1,16 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+'''
+@File    :   filetools.py
+@Time    :   2019/04/20 23:52:37
+@Author  :   jiegemena 
+@Version :   1.0
+@Contact :   jiegemena@outlook.com
+@Desc    :   None
+'''
+
+# here put the import lib
+
 import os
 import requests 
 

@@ -34,13 +34,12 @@ from setuptools import setup, find_packages
 
 setup(name="jgpycshare",
       description="jgpycshare",
-      version="1.8.1",
+      version="1.8.2",
       author="jiegemena",
       author_email="jiegemena@outlook.com",
       packages=find_packages(),
       install_requires=[    # 依赖列表
-          'crypto>=1.4.1',
-          'pycrypto>=2.6.1',
+          'pycryptodome>=3.8.1',
           'requests'
       ]
       )
