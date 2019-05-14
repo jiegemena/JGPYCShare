@@ -34,7 +34,7 @@ from setuptools import setup, find_packages
 
 setup(name="jgpycshare",
       description="jgpycshare",
-      version="1.8.2",
+      version="1.8.3",
       author="jiegemena",
       author_email="jiegemena@outlook.com",
       packages=find_packages(),

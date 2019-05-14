@@ -115,20 +115,23 @@ class JGRSA:
 
 class JGAES:
     def __init__(self, key):
-        self.key = key
+        if len(key) > 16:
+            key = key[0:16]
+        self.key = key.encode('utf-8') 
         self.mode = AES.MODE_CBC
  
     def encrypt(self, text):
         import base64
         cryptor = AES.new(self.key, self.mode, self.key)
-        length = 16                    
-        count = len(text.encode('utf-8'))    
+        length = 16      
+        text = text.encode('utf-8')    
+        count = len(text)    
         print(count)               
         if (count % length != 0):
             add = length - (count % length)
         else:
             add = 0            
-        text1 = text + ('\0' * add)    
+        text1 = text + ('\0' * add).encode('utf-8')    
         self.ciphertext = cryptor.encrypt(text1)        
         cryptedStr = str(base64.b64encode(self.ciphertext),encoding='utf-8')
         return cryptedStr
