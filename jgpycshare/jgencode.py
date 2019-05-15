@@ -8,7 +8,7 @@ from Crypto.Cipher import AES
 from Crypto import Random
 import jgpycshare.filetools
 import os
-
+import base64
 
 class JGRSA:
 
@@ -121,7 +121,6 @@ class JGAES:
         self.mode = AES.MODE_CBC
  
     def encrypt(self, text):
-        import base64
         cryptor = AES.new(self.key, self.mode, self.key)
         length = 16      
         text = text.encode('utf-8')    
@@ -139,7 +138,6 @@ class JGAES:
  
  
     def decrypt(self, text):
-        import base64, json
         base_text = base64.b64decode(text)
         cryptor = AES.new(self.key, self.mode, self.key)
         plain_text = cryptor.decrypt(base_text)

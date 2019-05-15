@@ -1,0 +1,25 @@
+venv/
+.vscode
+services/Log
+Log/
+test/
+test.py
+Log
+
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.bat
+*.vbs
+ 
+# Python:
+*.pyc
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+*.sh
